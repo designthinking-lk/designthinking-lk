@@ -1,0 +1,13 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Serve designthinking.lk in Chrome",
+			"type": "chrome",
+			"request": "launch",
+			"url": "http://127.0.0.1:4880",
+			"webRoot": "${workspaceFolder}",
+			"preLaunchTask": "serve-designthinking-lk"
+		}
+	]
+}
