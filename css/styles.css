@@ -127,6 +127,24 @@ img { max-width: 100%; display: block; }
 .media:hover img { filter: grayscale(0) contrast(1) brightness(1); transform: scale(1.03); }
 .media:hover::after { opacity: 0; }
 
+/* Octagon pan (experimental): the pointer pans the image inside the octagon
+   crop window. object-fit:cover would crop the landscape sides at layout (and
+   a transform can't pan into what was never painted), so instead the image is
+   shown at full landscape width — height-filled, width overflowing, centred —
+   and the octagon clips it. JS then pans the real overflow (rAF-driven, so we
+   drop the transform easing here and keep only the filter fade). The base
+   transform below centres it at rest; JS overrides it on hover.
+   Desktop pointers only — the `pan` class is added by JS. */
+.media.octagon.pan img {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: auto; height: 100%;
+  max-width: none;                 /* defeat the global img{max-width:100%} */
+  transform: translate(-50%, -50%);
+  transition: filter 0.5s ease;
+  will-change: transform;
+}
+
 /* ------------------------------------------------------------------ header */
 .header {
   position: sticky;

@@ -345,6 +345,69 @@
     nav.addEventListener('click', function (e) {
       if (e.target.classList.contains('nav-link')) nav.classList.remove('open');
     });
+
+    // ------------------------------------------------------ octagon pan (experimental)
+    // Hovering an octagon pans its (over-scaled) image with the pointer, so the
+    // octagon behaves like a crop window sliding over the full photo; it eases
+    // back to centre on leave. Desktop pointers only — no touch interaction.
+    (function () {
+      if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      var SCALE = 1.30;   // over-scale to open up pan room (~15% each side)
+      var EASE = 0.12;    // per-frame lerp toward the target
+      var GAIN = 1.7;     // translate per mouse delta — >1 reaches full pan before the edge
+      document.querySelectorAll('.media.octagon').forEach(function (el) {
+        if (el.closest('.feature-media')) return;   // skip Prof Suranga's octagon
+        var img = el.querySelector('img');
+        if (!img) return;
+        el.classList.add('pan');
+        var cx = 0, cy = 0, cs = 1;   // current transform
+        var tx = 0, ty = 0, ts = 1;   // target transform
+        var maxX = 0, maxY = 0, raf = null, hovering = false;
+
+        function measure() {
+          var r = el.getBoundingClientRect();
+          var nw = img.naturalWidth, nh = img.naturalHeight;
+          if (nw && nh) {
+            // Image is height-filled (width:auto), so its real displayed width
+            // overflows the square — that overflow, plus our over-scale, is the
+            // pannable range. Vertically only the over-scale gives play.
+            var dw = r.height * nw / nh;                 // displayed width at scale 1
+            maxX = Math.max(0, (dw * SCALE - r.width)  / 2);
+            maxY = Math.max(0, (r.height * SCALE - r.height) / 2);
+          } else {                                       // pre-load fallback
+            maxX = (SCALE - 1) / 2 * r.width;
+            maxY = (SCALE - 1) / 2 * r.height;
+          }
+          return r;
+        }
+        function tick() {
+          cx += (tx - cx) * EASE;
+          cy += (ty - cy) * EASE;
+          cs += (ts - cs) * EASE;
+          // keep the -50%/-50% centring, add the pan offset and over-scale
+          img.style.transform = 'translate(calc(-50% + ' + cx.toFixed(2) + 'px), calc(-50% + ' + cy.toFixed(2) + 'px)) scale(' + cs.toFixed(4) + ')';
+          var settled = Math.abs(tx - cx) < 0.1 && Math.abs(ty - cy) < 0.1 && Math.abs(ts - cs) < 0.001;
+          if (!hovering && settled) { img.style.transform = ''; raf = null; return; }   // '' -> CSS re-centres
+          raf = requestAnimationFrame(tick);
+        }
+        function start() { if (!raf) raf = requestAnimationFrame(tick); }
+
+        el.addEventListener('pointerenter', function () {
+          hovering = true; measure(); ts = SCALE; start();
+        });
+        el.addEventListener('pointermove', function (e) {
+          var r = measure();
+          var nx = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width  - 0.5) * 2 * GAIN));
+          var ny = Math.max(-1, Math.min(1, ((e.clientY - r.top)  / r.height - 0.5) * 2 * GAIN));
+          tx = -nx * maxX;   // mouse right reveals the right of the photo (look-around feel)
+          ty = -ny * maxY;
+          start();
+        });
+        el.addEventListener('pointerleave', function () {
+          hovering = false; tx = 0; ty = 0; ts = 1; start();
+        });
+      });
+    })();
   </script>
 </body>
 </html>
