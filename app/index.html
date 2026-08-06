@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="l_dhpOEnwSf45kQ9qY3-X3Cp9hdtfEuB9xhoxzIMQ_0" />
+  <title>Design Thinking @ SL — About the App</title>
+  <meta name="description" content="Design Thinking @ SL is a web application that lets ICE programme participants and mentors sign in with Google to build a profile, form teams, manage projects, and receive a @designthinking.lk account.">
+  <link rel="canonical" href="https://designthinking.lk/app/">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Design Thinking @ SL">
+  <meta property="og:title" content="Design Thinking @ SL — About the App">
+  <meta property="og:description" content="The sign-in platform for our ICE (Innovation, Creativity & Entrepreneurship) programmes. Participants and mentors sign in with Google to build profiles, form teams, and manage projects.">
+  <meta property="og:url" content="https://designthinking.lk/app/">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+  <meta name="theme-color" content="#6100FF">
+
+  <link rel="stylesheet" href="https://use.typekit.net/zws2qzx.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script>try{if(localStorage.getItem('dt.theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
+
+  <style>
+    .app{max-width:900px;margin:0 auto;padding:120px 24px 96px}
+    .app .eyebrow{display:inline-block;margin-bottom:14px}
+    .app h1{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,6vw,56px);line-height:1.03;letter-spacing:-.02em;color:var(--text);margin:0 0 16px}
+    .app .lead{font-size:clamp(18px,2.4vw,22px);line-height:1.6;color:var(--text-body);max-width:720px;margin:0 0 20px}
+    .app .lead strong{color:var(--text)}
+    .app .cta{display:flex;flex-wrap:wrap;gap:14px;margin:8px 0 8px}
+    .app h2{font-family:var(--font-display);font-weight:700;font-size:clamp(22px,3vw,30px);color:var(--text);margin:64px 0 8px;letter-spacing:-.01em}
+    .app h2 + p.sub{color:var(--text-muted);font-size:17px;margin:0 0 28px;max-width:680px}
+    .app .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    @media (max-width:640px){.app .grid{grid-template-columns:1fr}}
+    .app .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 24px;box-shadow:var(--shadow-sm)}
+    .app .card i{font-size:22px;color:var(--color-accent);margin-bottom:12px;display:block}
+    .app .card h3{font-family:var(--font-display);font-weight:600;font-size:18px;color:var(--text);margin:0 0 8px}
+    .app .card p{color:var(--text-body);font-size:15.5px;line-height:1.62;margin:0}
+    .app table{width:100%;border-collapse:collapse;margin:8px 0 0;font-size:15.5px}
+    .app th,.app td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-body)}
+    .app th{color:var(--text);font-weight:600;white-space:nowrap}
+    .app .foot-links{margin-top:64px;padding-top:28px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:20px;font-size:15px}
+    .app .foot-links a{color:var(--color-accent);text-decoration:none}
+    .app .foot-links a:hover{text-decoration:underline}
+    .app code{background:var(--bg-subtle);border:1px solid var(--border);border-radius:6px;padding:1px 6px;font-size:.92em}
+    .app .backlink{display:inline-flex;align-items:center;gap:8px;color:var(--text-muted);font-size:15px;margin-bottom:36px}
+    .app .backlink:hover{color:var(--color-accent)}
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container">
+      <a href="../" class="logo" aria-label="Design Thinking @ SL">
+        <img src="../img/dt_logo.png" alt="Design Thinking @ SL">
+      </a>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="app">
+      <a href="../" class="backlink"><i class="fa-solid fa-arrow-left"></i> designthinking.lk</a>
+      <span class="eyebrow">About the application</span>
+      <h1>Design Thinking @ SL</h1>
+      <p class="lead">
+        <strong>Design Thinking @ SL</strong> is a web application that runs our Innovation, Creativity &amp;
+        Entrepreneurship (ICE) programmes. Approved participants, mentors, and organisers <strong>sign in with
+        their Google account</strong> to build a profile, form and join teams, manage their projects, upload
+        their work, and receive a programme <code>@designthinking.lk</code> account.
+      </p>
+      <div class="cta">
+        <a href="https://ice2026.designthinking.lk/" class="btn btn-gradient" target="_blank" rel="noopener noreferrer">Open the platform <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="../" class="btn btn-outline">About Design Thinking @ SL</a>
+      </div>
+
+      <h2>What the app does</h2>
+      <p class="sub">Once signed in with Google, members use Design Thinking @ SL to:</p>
+      <div class="grid">
+        <div class="card">
+          <i class="fa-solid fa-id-badge"></i>
+          <h3>Create a member profile</h3>
+          <p>Set up a profile with your name, photo, skills, and bio so teammates and mentors can find you.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-people-group"></i>
+          <h3>Form and join teams</h3>
+          <p>Join a programme team, see your teammates, and collaborate throughout the ICE bootcamp.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-diagram-project"></i>
+          <h3>Manage projects</h3>
+          <p>Create and update your project, add tools and resources, and track it from idea to prototype.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-clapperboard"></i>
+          <h3>Upload your work</h3>
+          <p>Upload project images and short intro and pitch videos, stored securely in Google Drive.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-comments"></i>
+          <h3>Message teammates</h3>
+          <p>Post updates and message other members to coordinate your work during the programme.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          <h3>Get a programme account</h3>
+          <p>Approved participants are issued a managed <code>@designthinking.lk</code> Google Workspace account.</p>
+        </div>
+      </div>
+
+      <h2>How the app uses Google Sign-In</h2>
+      <p class="sub">
+        Design Thinking @ SL uses Google Sign-In and Google Workspace only to run the programme. We request access
+        to the following, and only for the purposes shown:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Google access</th><th>Why the app needs it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Email &amp; basic profile</td><td>To sign you in and show your name and photo in the platform.</td></tr>
+          <tr><td>Google Drive</td><td>To store the images and intro/pitch videos you upload and your project files.</td></tr>
+          <tr><td>Directory (Admin)</td><td>To provision and manage <code>@designthinking.lk</code> accounts for approved members.</td></tr>
+          <tr><td>Calendar</td><td>To create and manage events for ICE programmes and sessions.</td></tr>
+          <tr><td>Send email</td><td>To send invitations, account details, and programme notifications.</td></tr>
+        </tbody>
+      </table>
+      <p class="sub" style="margin-top:20px">
+        We do not sell your data or use it for advertising. Our use of Google user data follows the
+        <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google
+        API Services User Data Policy</a>, including the Limited Use requirements. Full details are in our Privacy Policy.
+      </p>
+
+      <div class="foot-links">
+        <a href="../privacy/">Privacy Policy</a>
+        <a href="../terms/">Terms of Service</a>
+        <a href="https://ice2026.designthinking.lk/" target="_blank" rel="noopener noreferrer">Open the platform</a>
+        <a href="mailto:info@ahlab.org">Contact: info@ahlab.org</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">Design Thinking @ SL <span>&copy; 2026 &middot; Innovation for Sri Lanka</span></div>
+      <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../terms/">Terms</a>
+        <a href="mailto:info@ahlab.org">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var header = document.getElementById('header');
+    addEventListener('scroll', function () { header.classList.toggle('scrolled', scrollY > 20); });
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      var root = document.documentElement;
+      var dark = root.getAttribute('data-theme') === 'dark';
+      root.classList.add('theme-fade');
+      if (dark) { root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme', 'dark'); }
+      try { localStorage.setItem('dt.theme', dark ? 'light' : 'dark'); } catch (e) {}
+      setTimeout(function () { root.classList.remove('theme-fade'); }, 450);
+    });
+  </script>
+</body>
+</html>
