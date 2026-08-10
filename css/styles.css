@@ -378,21 +378,32 @@ img { max-width: 100%; display: block; }
 }
 .workshop-card h3 { font-size: 1.5rem; color: var(--text); margin-bottom: 8px; }
 .workshop-card p { color: var(--text-muted); margin-bottom: 16px; }
-.workshop-link { font-family: var(--font-display); font-weight: 600; color: var(--color-accent); font-size: 0.98rem; }
+/* Visit-website affordance: an icon-only round button (no text). */
+.workshop-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--border-strong); color: var(--color-accent);
+  font-size: 0.95rem;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.workshop-card:hover .workshop-link {
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
 
-/* Upcoming edition: accent-tinted card with an "Upcoming" badge, to set the
-   next workshop apart from the past ones. */
+/* Upcoming edition: accent-tinted card. The year pill + "Upcoming" badge share
+   one row so they sit at the exact same vertical level. */
 .workshop-card.upcoming {
-  position: relative;
   border-color: color-mix(in srgb, var(--color-accent) 50%, var(--border));
   background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent) 7%, var(--surface)), var(--surface));
 }
 .workshop-card.upcoming:hover { border-color: var(--color-accent); }
+.workshop-cardtop { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px; }
+.workshop-cardtop .workshop-year { margin-bottom: 0; }
 .workshop-badge {
-  position: absolute; top: 18px; right: 18px;
   font-family: var(--font-display); font-weight: 700;
   font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent); white-space: nowrap;
   border: 1px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
   background: color-mix(in srgb, var(--color-accent) 10%, transparent);
   padding: 3px 9px; border-radius: 999px;
@@ -553,5 +564,5 @@ a.contact-value:hover { color: var(--color-accent); }
   .workshop-year { font-size: 11px; padding: 3px 11px; margin-bottom: 12px; }
   .workshop-card h3 { font-size: 1.1rem; }
   .workshop-card p { font-size: 0.9rem; margin-bottom: 10px; }
-  .workshop-link { font-size: 0.85rem; }
+  .workshop-link { width: 32px; height: 32px; font-size: 0.85rem; }
 }
