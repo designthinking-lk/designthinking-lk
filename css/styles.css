@@ -83,6 +83,7 @@ img { max-width: 100%; display: block; }
 .btn-gradient {
   background: linear-gradient(90deg, #00D7EE 0%, #2E6BF6 55%, #6100FF 100%);
   color: #fff;
+  border: none;
   box-shadow: 0 6px 20px -6px rgba(97, 0, 255, 0.5);
 }
 .btn-gradient:hover { filter: brightness(1.07); color: #fff; }
